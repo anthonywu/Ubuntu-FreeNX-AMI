@@ -46,10 +46,12 @@ TODO: Write instructions for using AWS web console to launch one of a selection 
 
 # Development
 
-1. Install [AWS Command Line Interface](http://aws.amazon.com/cli/) (i.e. `awscli`)
-2. Install [Packer](https://www.packer.io/)
-3. Fork this repo
-4. Contribute Pull Requests
+1. Install Dev Tools
+    - [AWS Command Line Interface](http://aws.amazon.com/cli/) (i.e. `awscli`)
+    - [Packer](https://www.packer.io/)
+    - [jq](http://stedolan.github.io/jq/)
+2. Fork this repo
+3. Contribute Pull Requests
 
 # References
 
