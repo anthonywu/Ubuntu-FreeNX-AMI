@@ -8,7 +8,7 @@ prepare:
 
 # Build the image without interactive prompts
 build: prepare validate
-	$(eval INLINE_VARS := --var 'builder_security_group_id=`jq --raw-output .SecurityGroups[0].GroupId ./private/sec-group.json`')
+	$(eval INLINE_VARS := --var 'builder_security_group_id=$(shell jq --raw-output .SecurityGroups[0].GroupId ./private/sec-group.json)')
 	@packer build $(INLINE_VARS) ami-spec.json
 
 # Build the image but use packer debug mode to allow interactive with builder instance
