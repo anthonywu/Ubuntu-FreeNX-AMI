@@ -1,4 +1,8 @@
+
+![](/resources/images/banner.png?raw=true "Ubuntu Cloud Desktop with FreeNX")
+
 # Ubuntu-FreeNX-AMI
+
 An Amazon EC2 Machine Image that supports remote desktop via the NX protocol. Intended use case is to support a Cloud-hosted personal workspace accessible from any computer.
 
 -----
@@ -53,6 +57,7 @@ TODO: Write instructions for using AWS web console to launch one of a selection 
 - http://www.ubuntu.com/download/desktop/install-ubuntu-desktop
 - http://cloud-images.ubuntu.com/locator/ec2/
 - http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+- https://www.packer.io/docs/builders/amazon-ebs.html
 
 # License
 
