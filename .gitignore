@@ -1,0 +1,9 @@
+# safe space for personal data
+private/*
+
+# common junk
+.DS_Store
+*~
+
+# Packer generates a temp private key
+*.pem

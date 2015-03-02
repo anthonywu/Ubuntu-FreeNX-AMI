@@ -1,0 +1,42 @@
+{
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "username": "{{env `USER`}}",
+    "ubuntu_base_ami": "ami-27ebb517",
+    "desktop_flavor": "xfce",
+    "builder_security_group_id": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "us-west-2",
+      "source_ami": "{{user `ubuntu_base_ami`}}",
+      "instance_type": "m3.medium",
+      "ssh_username": "ubuntu",
+      "security_group_id": "{{user `builder_security_group_id`}}",
+      "ami_name": "ubuntu-freenx-{{user `desktop_flavor`}}-{{isotime \"2006-01-02\" | clean_ami_name}}",
+      "ami_description": "Ubuntu Cloud Desktop FreeNX and {{user `desktop_flavor`}}",
+      "enhanced_networking": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "resources/nxsetup.tar.gz",
+      "destination": "/tmp/nxsetup.tar.gz"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "resources/install_desktop.sh",
+        "resources/install_freenx_server.sh"
+      ],
+      "environment_vars": [
+        "DESKTOP_FLAVOR={{user `desktop_flavor`}}"
+      ]
+    }
+  ]
+}
